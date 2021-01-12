@@ -14,12 +14,12 @@ def menu():
         artists, = spotify.search(searh_string, types=('track',), limit=50)
         print_article(artists)
     elif num == "2":
-        album_name = input("what's the artist name : ")
+        album_name = input("what's the album name : ")
         searh_string = "album:" + album_name
         album, = spotify.search(searh_string, types=('track',), limit=50)
         print_article(album)
     elif num == "3":
-        track_name = input("what's the artist name : ")
+        track_name = input("what's the track name : ")
         tracks, = spotify.search(track_name, types=('track',), limit=50)
         print_article(tracks)
     else:
@@ -29,7 +29,7 @@ def menu():
 def print_article(element):
     print ("{:<10} {:<70} {:<40}".format("popularity", "name", "artist"))
     for elem in element.items:
-        print ("{:<10} {:<50} {:<40}".format(elem.popularity , elem.name, elem.artists[0].name))
+        print ("{:<10} {:<70} {:<40}".format(elem.popularity , elem.name, elem.artists[0].name))
 
 
 if __name__ == '__main__':
